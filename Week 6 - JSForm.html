@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<style type="text/css">
+		label
+		{
+			font-size: 22px;
+		}
+		p
+		{
+			font-size: 36px;
+		}
+	</style>
+	<script type="text/javascript">
+		function func1() 
+		{
+			var t1=document.getElementById("text1");
+			var l=document.getElementById("l1");
+			var regex=/[a-zA-Z]+([._/-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+([.][a-zA-Z0-9]+)+$/;
+			/*$ is used to indicate that our regex will end with .followed by some characters.*/
+			if(t1.value.match(regex))
+			{
+				l.innerHTML="Valid";
+				return true;
+			}
+			else
+			{
+				l.innerHTML="Invalid";
+				return false;
+			}
+		}
+		function func2() 
+		{
+			var t1=document.getElementById("numb");
+			var l=document.getElementById("l2");
+			var regex=/[0-9]{10}/;
+			if(t1.value.match(regex))
+			{
+				l.innerHTML="Valid";
+				return true;
+			}
+			else
+			{
+				l.innerHTML="Invalid";
+				return false;
+			}
+		}
+		function func3() 
+		{
+			var t1=document.getElementById("numb1");
+			var l=document.getElementById("l3");
+			var regex=/(([0][0-9])|([12][0-9])|([3][01]))([/-])(([0][1-9])|([1][0-2]))([/-])([1-9][0-9]{3})/;
+			if(t1.value.match(regex))
+			{
+				l.innerHTML="Valid";
+				return true;
+			}
+			else
+			{
+				l.innerHTML="Invalid";
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<p align="center"><b>Enter Data</b></p>
+	<br>
+	<center>
+		<form>
+			<label>Enter Email Id</label>&nbsp;&nbsp;
+			<input type="email" name="t1" id="text1" oninput="func1()">
+			<label id="l1"></label>
+			<br><br>
+			<label>Enter Password</label>&nbsp;&nbsp;
+			<input type="password" name="p" id="pass">
+			<br><br>
+			<label>Enter Mobile Number</label>&nbsp;&nbsp;
+			<input type="tel" name="n1" id="numb" oninput="func2()">
+			<label id="l2"></label>
+			<br><br>
+			<label>Enter Date</label>&nbsp;&nbsp;
+			<input type="text" name="n2" id="numb1" oninput="func3()">
+			<label id="l3"></label>
+		</form>
+	</center>
+</body>
+</html>
